@@ -1,6 +1,6 @@
 # Simple Blog
 
-This is a simple blog for west kent using PHP, PDO, & MySQL.
+This is a simple blog for West Kent students using PHP, PDO, & MySQL.
 
 ## Features
 
@@ -11,9 +11,8 @@ This is a simple blog for west kent using PHP, PDO, & MySQL.
 
 ## Installation
 
-1. fds
-2. fdsfds
-3. t
-4. f
-5. fdsfds
+1. Install PHP
+2. Install MySQL
+3. Set up database
+4. Create a user and grant them privileges
 
