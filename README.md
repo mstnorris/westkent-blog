@@ -18,3 +18,6 @@ This is a simple blog for West Kent students using PHP, PDO, & MySQL.
 3. Set up database
 4. Create a user and grant them privileges
 
+## Step by Step
+
+See ![here](INSTRUCTIONS.md)
