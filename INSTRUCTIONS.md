@@ -15,3 +15,12 @@
 </body>
 </html>
 ```
+4. The above code right now, is purely HTML. So yes, we could have used the `.html` extension and it would be viewable in the browser without any further configuration however we will soon be adding PHP code and that requires a server to run it - hence why we jumped the gun and are using the `.php` file extension.
+5. Next, to make our blog look awesome on any browser, we'll grab **Bootstrap** from a [CDN (Content Delivery Network)](https://www.bootstrapcdn.com/alpha/). Add the following within the `<head></head>` tags in your `index.php` file.
+```html
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css">
+```
+6. Now add the accompanying JavaScript file just before the closing `</body>` tag.
+```html
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/js/bootstrap.min.js"></script>
+```
