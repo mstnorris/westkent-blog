@@ -10,20 +10,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-xs-12">
-                    <nav class="navbar navbar-dark bg-inverse" style="background-color: #B62536;">
-                        <a class="navbar-brand" href="/"><i class="fa fa-fw fa-university"></i>&nbsp;West Kent</a>
-                        <ul class="nav navbar-nav">
-                            <li class="nav-item">
-                                <a class="nav-link" href="/"><i class="fa fa-fw fa-home"></i>&nbsp;Home</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="/blog.php"><i class="fa fa-fw fa-newspaper-o"></i>&nbsp;Blog</a>
-                            </li>
-                            <li class="nav-item active">
-                                <a class="nav-link" href="/write.php"><i class="fa fa-fw fa-pencil-square-o"></i>&nbsp;Write <span class="sr-only">(current)</span></a>
-                            </li>
-                        </ul>
-                    </nav>
+                    <?php include('nav.php') ?>
                 </div>
             </div>
             <div class="row">
