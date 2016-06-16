@@ -2,6 +2,8 @@
 
 This is a simple blog for West Kent students using PHP, PDO, & MySQL.
 
+![Screenshot](http://i.imgur.com/z14xjVo.png)
+
 ## Features
 
 - PHP
