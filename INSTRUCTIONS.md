@@ -33,4 +33,25 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/js/bootstrap.min.js"></script>
     ```
 
-7. test
+7. Lastly, we'll grab some cool icons [FontAwesome](http://fontawesome.io/icons/) from the [same CDN](https://www.bootstrapcdn.com/fontawesome/) as above. Place this code underneath your previous `<link>` tag.
+
+    ```html
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
+    ```
+
+8. Hopefully you've followed along up until now, but just incase you're not sure. Here's the code we've written so far in full.
+
+    ```html
+    <!DOCTYPE html>
+    <html>
+        <head>
+            <title>West Kent</title>
+            <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css">
+            <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
+        </head>
+        <body>
+            <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/js/bootstrap.min.js"></script>
+        </body>
+    </html>
+    ```
+
