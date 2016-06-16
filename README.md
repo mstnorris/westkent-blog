@@ -20,4 +20,4 @@ This is a simple blog for West Kent students using PHP, PDO, & MySQL.
 
 ## Step by Step
 
-See ![here](INSTRUCTIONS.md)
+See [here](INSTRUCTIONS.md)
