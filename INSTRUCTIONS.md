@@ -124,28 +124,28 @@
 
 17. Now let's add the code to display the blog posts themselves, we'll call this file `blog_posts.php`
 
-```php
-<?php
+    ```php
+    <?php
 
-include('mysql_connection.php');
+    include('mysql_connection.php');
 
-try {
-    $stmt = $conn->prepare("SELECT title, content, published_at FROM posts ORDER BY published_at DESC");
-    $stmt->execute();
-    $result = $stmt->setFetchMode(PDO::FETCH_ASSOC);
-    while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
-        echo "<div class='card'><div class='card-block'>";
-        echo "<h4 class='card-title'>" .$row['title'] . "</h4>";
-        echo "<p class='card-text'>" . $row['content'] . "</p>";
-        echo "<p class='card-text text-xs-right'><small class='text-muted'>" . $row['published_at'] . "</small></p>";
-        echo "</div></div>";
+    try {
+        $stmt = $conn->prepare("SELECT title, content, published_at FROM posts ORDER BY published_at DESC");
+        $stmt->execute();
+        $result = $stmt->setFetchMode(PDO::FETCH_ASSOC);
+        while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+            echo "<div class='card'><div class='card-block'>";
+            echo "<h4 class='card-title'>" .$row['title'] . "</h4>";
+            echo "<p class='card-text'>" . $row['content'] . "</p>";
+            echo "<p class='card-text text-xs-right'><small class='text-muted'>" . $row['published_at'] . "</small></p>";
+            echo "</div></div>";
+        }
+    } catch(PDOException $e) {
+        echo "Error: " . $e->getMessage();
     }
-} catch(PDOException $e) {
-    echo "Error: " . $e->getMessage();
-}
 
-$conn = null;
-```
+    $conn = null;
+    ```
 
 18. The code above on it's own doesn't look good at all, as it won't be formatted correctly. We'll include it in a bigger layout file (parent) that will help style it. Duplicate your _index.php_ file and rename it to `blog.php`. Within the `<body></body>` tags insert the following code.
 
