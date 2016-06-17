@@ -67,16 +67,16 @@ mysql -u[USERNAME] -p
 password
 ```
 
-11. You should see the MySQL command prompt now:
+11. You should see the MySQL command prompt, it looks like this:
 
-```sh
+```mysql
 mysql> 
 ```
 
 12. We're good to go, now let's create the database, called 'westkent'
 
 ```sql
-create database westkent;
+CREATE DATABASE westkent;
 ```
 
 13. Create your user account, this will create a new user, that we'll only give access to our database that we created above.
