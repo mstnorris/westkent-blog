@@ -55,3 +55,39 @@
     </html>
     ```
 
+9. Moving onto the MySQL, first we need to connect via the command line (replace [USERNAME] with the username, defaults to 'root')
+
+```sh
+mysql -u[USERNAME] -p
+```
+
+10. When prompted enter the password, it might be 'root', 'password', or an empty string ''.
+
+```sh
+password
+```
+
+11. You should see the MySQL command prompt now:
+
+```sh
+mysql> 
+```
+
+12. We're good to go, now let's create the database, called 'westkent'
+
+```sql
+create database westkent;
+```
+
+13. Create your user account, this will create a new user, that we'll only give access to our database that we created above.
+
+```sql
+CREATE USER 'westkent' IDENTIFIED BY 'westkent';
+```
+
+14. Let's give our new user access to our database:
+
+```sql
+GRANT ALL PRIVILEGES ON westkent.* TO 'westkent'
+```
+
