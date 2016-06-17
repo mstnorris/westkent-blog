@@ -146,3 +146,122 @@ try {
 
 $conn = null;
 ```
+
+18. The code above on it's own doesn't look good at all, as it won't be formatted correctly. We'll include it in a bigger layout file (parent) that will help style it. Duplicate your _index.php_ file and rename it to `blog.php`. Within the `<body></body>` tags insert the following code.
+
+    ```php
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-6 col-sm-offset-6 col-xs-12">
+                <h1 class="display-4">West Kent Blog</h1>
+                <?php
+                include('blog_posts.php');
+                ?>
+            </div>
+        </div>
+    </div>
+    ```
+
+19. Now let's create our navigation, create a file called `nav.php`
+
+    ```php
+    <?php
+        $uri = $_SERVER['REQUEST_URI'];
+    ?>
+    <nav class="navbar navbar-dark bg-inverse" style="background-color: #B62536;">
+        <a class="navbar-brand" href="/"><i class="fa fa-fw fa-university"></i>&nbsp;West Kent</a>
+        <ul class="nav navbar-nav">
+            <li class="nav-item <?php if (strlen($uri) == 1) echo('active'); ?> ">
+                <a class="nav-link" href="/"><i class="fa fa-fw fa-home"></i>&nbsp;Home</a>
+            </li>
+            <li class="nav-item <?php if (strpos($uri, 'blog')) echo('active'); ?> ">
+                <a class="nav-link" href="/blog.php"><i class="fa fa-fw fa-newspaper-o"></i>&nbsp;Blog <span class="sr-only">(current)</span></a>
+            </li>
+            
+        </ul>
+    </nav>
+    ```
+
+20. Let's include the navigation in our `index.php` and `blog.php` pages. Add this after the `<container>` tag, before the first `<div class="row">` tag.
+
+    ```php
+    <div class="row">
+        <div class="col-xs-12">
+            <?php include('nav.php') ?>
+        </div>
+    </div>
+    ```
+
+    Your `blog.php` file should now look like this in it's entirety.
+
+    ```php
+    <!DOCTYPE html>
+    <html>
+        <head>
+            <title>West Kent</title>
+            <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css">
+            <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
+            <link rel="stylesheet" href="style.css">
+        </head>
+        <body>
+            <div class="container">
+                <div class="row">
+                    <div class="col-xs-12">
+                        <?php include('nav.php') ?>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-6 col-sm-offset-6 col-xs-12">
+                        <h1 class="display-4">West Kent Blog</h1>
+                        <?php
+                        include('blog_posts.php');
+                        ?>
+                    </div>
+                </div>
+            </div>
+            <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/js/bootstrap.min.js"></script>
+        </body>
+    </html>
+    ```
+
+21. We now need to add a page so that we can write a new blog post, let's again duplicate our `index.php` page and rename it to `write.php`. Then, add this between the `<container></container>` tags. Notice that we haven't got any navigation. We'll add this next.
+
+    ```php
+    <div class="row">
+        <div class="col-sm-6 col-md-offset-6 col-xs-12">
+            <h1 class="display-4">Write Post</h1>
+            <form class="form-horizontal" action="/post.php" method="post">
+                <fieldset class="form-group">
+                    <label for="title">Title</label>
+                    <input type="text" class="form-control" name="title" id="title" placeholder="Title">
+                    <small class="text-muted">Give your post a title.</small>
+                </fieldset>
+                
+                <fieldset class="form-group">
+                    <label for="content">Content</label>
+                    <textarea class="form-control" name="content" id="content" rows="5" placeholder="Content"></textarea>
+                    <small class="text-muted">Write the post content.</small>
+                </fieldset>
+                <button type="submit" class="btn btn-primary pull-xs-right">Post</button>
+            </form>
+        </div>
+    </div>
+    ```
+
+22. Add our `nav.php` to our `write.php` page. Add the following after the opening `<container>` tag and before the first `<div class="row">` tag.
+
+    ```php
+    <div class="row">
+        <div class="col-xs-12">
+            <?php include('nav.php') ?>
+        </div>
+    </div>
+    ```
+
+23. You'll notice that we don't yet have a link to the `write.php` page from our navigation, so we'll add that now. Add this just after the last closing `</li>` tag within `nav.php`.
+
+    ```php
+    <li class="nav-item <?php if (strpos($uri, 'write')) echo('active');?> ">
+        <a class="nav-link" href="/write.php"><i class="fa fa-fw fa-pencil-square-o"></i>&nbsp;Write</a>
+    </li>
+    ```
