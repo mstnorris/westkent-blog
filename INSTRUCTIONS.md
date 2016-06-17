@@ -91,4 +91,58 @@
     GRANT ALL PRIVILEGES ON westkent.* TO 'westkent'
     ```
 
-15. 
+15. Now we need to create our `posts` table, we do this from the command line.
+
+    ```sql
+    CREATE TABLE `posts` (
+      `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+      `title` varchar(255) NOT NULL DEFAULT '',
+      `content` text NOT NULL,
+      `published_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+      PRIMARY KEY (`id`)
+    ) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
+    ```
+
+16. We need to connect to our database from PHP now, to do this we will create a separate file so that the code can be reused. We do this to avoid repitition. We'll call this file `mysql_connection.php`
+
+    ```php
+    <?php
+
+    $servername = "localhost";
+    $username = "westkent";
+    $password = "westkent";
+    $database = "westkent";
+
+    try {
+        $conn = new PDO("mysql:host=$servername;dbname=$database", $username, $password);
+        $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        // Connection was successful
+    } catch(PDOException $e) {
+        // Connection failed
+    }
+    ```
+
+17. Now let's add the code to display the blog posts themselves, we'll call this file `blog_posts.php`
+
+```php
+<?php
+
+include('mysql_connection.php');
+
+try {
+    $stmt = $conn->prepare("SELECT title, content, published_at FROM posts ORDER BY published_at DESC");
+    $stmt->execute();
+    $result = $stmt->setFetchMode(PDO::FETCH_ASSOC);
+    while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+        echo "<div class='card'><div class='card-block'>";
+        echo "<h4 class='card-title'>" .$row['title'] . "</h4>";
+        echo "<p class='card-text'>" . $row['content'] . "</p>";
+        echo "<p class='card-text text-xs-right'><small class='text-muted'>" . $row['published_at'] . "</small></p>";
+        echo "</div></div>";
+    }
+} catch(PDOException $e) {
+    echo "Error: " . $e->getMessage();
+}
+
+$conn = null;
+```
