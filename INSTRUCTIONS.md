@@ -162,7 +162,26 @@
     </div>
     ```
 
-19. Now let's create our navigation, create a file called `nav.php`
+19. Now let's create our navigation. Instead of duplicating the navigation in each and every file we create (which would look like this):
+
+    ```html
+    <nav class="navbar navbar-dark bg-inverse" style="background-color: #B62536;">
+        <a class="navbar-brand" href="/"><i class="fa fa-fw fa-university"></i>&nbsp;West Kent</a>
+        <ul class="nav navbar-nav">
+            <li class="nav-item active">
+                <a class="nav-link" href="/"><i class="fa fa-fw fa-home"></i>&nbsp;Home <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/blog.php"><i class="fa fa-fw fa-newspaper-o"></i>&nbsp;Blog</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/write.php"><i class="fa fa-fw fa-pencil-square-o"></i>&nbsp;Write</a>
+            </li>
+        </ul>
+    </nav>
+    ```
+
+    We'll instead create a separate file called `nav.php`. The reason we do this so that there is only one file that needs to be updated as and when our site grows. If we started with two pages, we'd have to edit the navigation in just two pages - that's OK! But, if instead we had nine pages, and we wanted to add a tenth, we'd have to edit all ten pages and it starts to get really messy. Below is the `nav.php`
 
     ```php
     <?php
